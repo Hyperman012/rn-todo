@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Todo } from '../Todo.tsx';
 import React from 'react';
 import { TodoPostIt } from './TodoPostIt.tsx';
@@ -6,8 +6,8 @@ import { TodoPostIt } from './TodoPostIt.tsx';
 export function TodoCard(props: { todo: Todo }) {
     return (
         <TodoPostIt>
-            <View style={{ flex: 1, paddingVertical: 10, gap: 10 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+            <View style={styles.cardContainer}>
+                <View style={styles.deleteButtonPosition}>
                     <DeleteTodoButton />
                 </View>
                 <Text>{props.todo.title}</Text>
@@ -19,7 +19,22 @@ export function TodoCard(props: { todo: Todo }) {
 function DeleteTodoButton() {
     return (
         <Pressable>
-            <Text style={{ fontWeight: 'bold' }}>x</Text>
+            <Text style={styles.deleteText}>x</Text>
         </Pressable>
     );
 }
+
+const styles = StyleSheet.create({
+    cardContainer: {
+        flex: 1,
+        paddingVertical: 10,
+        gap: 10,
+    },
+    deleteButtonPosition: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    },
+    deleteText: {
+        fontWeight: 'bold',
+    },
+});
