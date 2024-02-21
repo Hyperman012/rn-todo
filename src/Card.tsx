@@ -1,8 +1,5 @@
 import { Text, View } from 'react-native';
-
-export type Todo = {
-    title: string;
-};
+import { Todo } from './Todo.tsx';
 
 export function Card(props: { todo: Todo }) {
     return (
