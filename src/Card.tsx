@@ -1,13 +1,13 @@
-import { Text, View } from "react-native";
+import { Text, View } from 'react-native';
 
 export type Todo = {
-  title: string;
+    title: string;
 };
 
 export function Card(props: { todo: Todo }) {
-  return (
-    <View>
-      <Text>{props.todo.title}</Text>
-    </View>
-  );
+    return (
+        <View>
+            <Text>{props.todo.title}</Text>
+        </View>
+    );
 }
