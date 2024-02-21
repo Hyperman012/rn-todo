@@ -6,7 +6,7 @@ import { AppHeader, appName } from '../AppHeader.tsx';
 
 describe('app header.test', () => {
     it('renders name', () => {
-        const header = render(<AppHeader />);
+        const header = render(<AppHeader setIsVisible={() => {}} />);
         header.getByText(appName);
     });
 });
