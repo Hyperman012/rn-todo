@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, useColorScheme, View } from 'react-native';
+import { SafeAreaView, StyleSheet, useColorScheme, View } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { AppHeader } from './AppHeader.tsx';
@@ -21,9 +21,9 @@ export default function App(): React.JSX.Element {
     };
 
     return (
-        <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
+        <SafeAreaView style={[backgroundStyle, styles.appContainer]}>
             <AddModal isVisible={isAddModalVisible} setIsVisible={setIsAddModalVisible} />
-            <View style={{ flex: 1, gap: 20 }}>
+            <View style={styles.mainPageContainer}>
                 <View>
                     <AppHeader />
                     <TodoButtons isVisible={setIsAddModalVisible} />
@@ -33,3 +33,13 @@ export default function App(): React.JSX.Element {
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    appContainer: {
+        flex: 1,
+    },
+    mainPageContainer: {
+        flex: 1,
+        gap: 20,
+    },
+});
