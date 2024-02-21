@@ -20,6 +20,16 @@ describe('AddModal', () => {
         modal.getByDisplayValue('do the dishes');
     });
 
+    describe('confirm button', () => {
+        it('closes', () => {
+            fireEvent.press(modal.getByText('Save'));
+
+            expect(() => {
+                modal.getByPlaceholderText('Enter To-Do');
+            }).toThrow();
+        });
+    });
+
     it('closes', () => {
         fireEvent.press(modal.getByText('Close'));
 

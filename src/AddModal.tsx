@@ -9,6 +9,9 @@ export function AddModal() {
             <Pressable onPress={() => setIsVisible(false)}>
                 <Text>Close</Text>
             </Pressable>
+            <Pressable onPress={() => setIsVisible(false)}>
+                <Text>Save</Text>
+            </Pressable>
             <TextInput placeholder={'Enter To-Do'} onChangeText={setNewTodo} value={newTodo} />
         </Modal>
     );
