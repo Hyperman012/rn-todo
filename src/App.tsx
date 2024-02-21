@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, useColorScheme, View } from 'react-native';
-
+import React, { useState } from 'react';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { AddModal } from './AddModal.tsx';
 import { AppHeader } from './AppHeader.tsx';
 import { TodoCards } from './todoCard/TodoCards.tsx';
-import { AddModal } from './AddModal.tsx';
 
 function useIsDarkMode() {
     return useColorScheme() === 'dark';
