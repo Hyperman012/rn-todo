@@ -15,7 +15,7 @@ export function AppHeader(props: { setIsVisible: (value: boolean) => void }) {
 }
 
 const styles = StyleSheet.create({
-    container: { backgroundColor: '#f7f7f7', alignItems: 'center', margin: 10 },
+    container: { backgroundColor: '#f7f7f7', alignItems: 'center', padding: 10 },
     title: { fontSize: 22, fontWeight: 'bold' },
     subtitle: { fontStyle: 'italic' },
 });
