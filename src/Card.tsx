@@ -1,9 +1,13 @@
 import { Text, View } from "react-native";
 
-export function Card() {
+export type Todo = {
+  title: string;
+};
+
+export function Card(props: { todo: Todo }) {
   return (
     <View>
-      <Text>Create Todo List</Text>
+      <Text>{props.todo.title}</Text>
     </View>
   );
 }
