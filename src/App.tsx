@@ -24,8 +24,12 @@ const MediaStyleSheet = createMediaStyleSheet({
   mobile: () => false,
 });
 
+function useIsDarkMode() {
+  return useColorScheme() === "dark";
+}
+
 export default function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === "dark";
+  const isDarkMode = useIsDarkMode();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
