@@ -3,7 +3,7 @@ import { SafeAreaView, useColorScheme, View } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { AppHeader } from './AppHeader.tsx';
-import { TodoCards } from './TodoCards.tsx';
+import { TodoCards } from './todoCard/TodoCards.tsx';
 import { AddModal } from './AddModal.tsx';
 import { TodoButtons } from './TodoButtons.tsx';
 

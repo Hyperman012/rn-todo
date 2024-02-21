@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from 'react-native';
-import { Todo } from './Todo.tsx';
+import { Todo } from '../Todo.tsx';
 import React from 'react';
 import { TodoPostIt } from './TodoPostIt.tsx';
 

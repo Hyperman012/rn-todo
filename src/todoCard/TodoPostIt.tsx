@@ -4,7 +4,7 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 export function TodoPostIt(props: PropsWithChildren) {
     return (
         <View style={styles.container}>
-            <ImageBackground style={styles.imageBackground} source={require('./assets/todo.png')}>
+            <ImageBackground style={styles.imageBackground} source={require('../assets/todo.png')}>
                 {props.children}
             </ImageBackground>
         </View>
