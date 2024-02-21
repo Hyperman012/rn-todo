@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, useColorScheme } from 'react-native';
+import { SafeAreaView, useColorScheme, View } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { AppHeader } from './AppHeader.tsx';
 import { TodoCards } from './TodoCards.tsx';
 import { AddModal } from './AddModal.tsx';
-import { AddTodo } from './AddTodo.tsx';
+import { TodoButtons } from './TodoButtons.tsx';
 
 function useIsDarkMode() {
     return useColorScheme() === 'dark';
@@ -21,11 +21,15 @@ export default function App(): React.JSX.Element {
     };
 
     return (
-        <SafeAreaView style={[backgroundStyle, { flex: 1, gap: 20 }]}>
+        <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
             <AddModal isVisible={isAddModalVisible} setIsVisible={setIsAddModalVisible} />
-            <AppHeader />
-            <AddTodo setIsVisible={setIsAddModalVisible} />
-            <TodoCards />
+            <View style={{ flex: 1, gap: 20 }}>
+                <View>
+                    <AppHeader />
+                    <TodoButtons isVisible={setIsAddModalVisible} />
+                </View>
+                <TodoCards />
+            </View>
         </SafeAreaView>
     );
 }
