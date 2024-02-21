@@ -13,11 +13,11 @@ export default function App(): React.JSX.Element {
     const isDarkMode = useIsDarkMode();
 
     const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+        backgroundColor: isDarkMode ? Colors.darker : 'white',
     };
 
     return (
-        <SafeAreaView style={backgroundStyle}>
+        <SafeAreaView style={[backgroundStyle, { flex: 1, gap: 20 }]}>
             <AppHeader />
             <Card todo={{ title: 'Make List' }} />
         </SafeAreaView>
