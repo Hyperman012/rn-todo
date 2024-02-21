@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { EditableCard } from './Card.tsx';
 import { OurModal } from './OurModal.tsx';
+import { EditableCard } from './EditableTodoCard.tsx';
 
 export function AddModal(props: { isVisible: boolean; setIsVisible: (value: boolean) => void }) {
     const [newTodo, setNewTodo] = useState('');
