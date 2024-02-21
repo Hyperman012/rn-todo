@@ -1,6 +1,7 @@
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { EditableCard } from './Card.tsx';
+import { OurModal } from './OurModal.tsx';
 
 export function AddModal(props: { isVisible: boolean; setIsVisible: (value: boolean) => void }) {
     const [newTodo, setNewTodo] = useState('');
@@ -10,25 +11,37 @@ export function AddModal(props: { isVisible: boolean; setIsVisible: (value: bool
     }
 
     return (
-        <Modal visible={props.isVisible}>
-            <View style={{ padding: 5, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <OurModal style={styles.container} isVisible={props.isVisible} setIsVisible={props.setIsVisible}>
+            <View style={styles.buttonContainer}>
                 <AddModalButton text={'Close'} onPress={closeModal} />
                 <AddModalButton text={'Save'} onPress={closeModal} />
             </View>
             <EditableCard text={newTodo} onChangeText={setNewTodo} />
-        </Modal>
+        </OurModal>
     );
 }
 
 function AddModalButton(props: { onPress: () => void; text: string }) {
     return (
-        <Pressable style={styles.container} onPress={props.onPress}>
-            <Text style={styles.text}>{props.text}</Text>
+        <Pressable style={buttonStyles.container} onPress={props.onPress}>
+            <Text style={buttonStyles.text}>{props.text}</Text>
         </Pressable>
     );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
+    container: {
+        gap: 10,
+        padding: 10,
+    },
+    buttonContainer: {
+        gap: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+});
+
+const buttonStyles = StyleSheet.create({
     container: {
         paddingHorizontal: 20,
         paddingVertical: 10,
