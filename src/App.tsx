@@ -5,6 +5,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { AppHeader } from './AppHeader.tsx';
 import { TodoCards } from './todoCard/TodoCards.tsx';
 import { AddModal } from './AddModal.tsx';
+import { TodoProvider } from './TodoProvider.tsx';
 
 function useIsDarkMode() {
     return useColorScheme() === 'dark';
@@ -21,11 +22,13 @@ export default function App(): React.JSX.Element {
 
     return (
         <SafeAreaView style={[backgroundStyle, styles.appContainer]}>
-            <AddModal isVisible={isAddModalVisible} setIsVisible={setIsAddModalVisible} />
-            <View style={styles.mainPageContainer}>
-                <AppHeader setIsVisible={setIsAddModalVisible} />
-                <TodoCards />
-            </View>
+            <TodoProvider>
+                <AddModal isVisible={isAddModalVisible} setIsVisible={setIsAddModalVisible} />
+                <View style={styles.mainPageContainer}>
+                    <AppHeader setIsVisible={setIsAddModalVisible} />
+                    <TodoCards />
+                </View>
+            </TodoProvider>
         </SafeAreaView>
     );
 }

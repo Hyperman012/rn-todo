@@ -2,19 +2,30 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { OurModal } from './OurModal.tsx';
 import { EditableCard } from './todoCard/EditableTodoCard.tsx';
+import { useTodos } from './TodoProvider.tsx';
+import { Todo } from './Todo.tsx';
 
 export function AddModal(props: { isVisible: boolean; setIsVisible: (value: boolean) => void }) {
     const [newTodo, setNewTodo] = useState('');
+    const todoCollection = useTodos();
 
     function closeModal() {
         props.setIsVisible(false);
+    }
+
+    function onSave() {
+        const todo: Todo = {
+            title: newTodo,
+        };
+        todoCollection.add(todo);
+        closeModal();
     }
 
     return (
         <OurModal style={styles.container} isVisible={props.isVisible} setIsVisible={props.setIsVisible}>
             <View style={styles.buttonContainer}>
                 <AddModalButton text={'Close'} onPress={closeModal} />
-                <AddModalButton text={'Save'} onPress={closeModal} />
+                <AddModalButton text={'Save'} onPress={onSave} />
             </View>
             <EditableCard text={newTodo} onChangeText={setNewTodo} />
         </OurModal>
