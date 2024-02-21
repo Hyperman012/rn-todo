@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     cardContainer: {
         flex: 1,
         paddingVertical: 10,
-        gap: 10,
+        gap: 20,
     },
     deleteButtonPosition: {
         flexDirection: 'row',

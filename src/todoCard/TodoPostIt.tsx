@@ -13,5 +13,5 @@ export function TodoPostIt(props: PropsWithChildren) {
 
 const styles = StyleSheet.create({
     container: { alignItems: 'center', justifyContent: 'center' },
-    imageBackground: { height: 100, width: 100, alignItems: 'center', justifyContent: 'center' },
+    imageBackground: { height: 130, width: 130, alignItems: 'center', justifyContent: 'center' },
 });
