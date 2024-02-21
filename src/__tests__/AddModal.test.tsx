@@ -27,6 +27,8 @@ describe('AddModal', () => {
             fireEvent.press(modal.getByText('Save'));
             expect(setIsVisibleSpy).toBeCalledWith(false);
         });
+
+        it('saves to context', () => {});
     });
 
     it('closes', () => {
