@@ -2,13 +2,7 @@ import React from 'react';
 import { SafeAreaView, useColorScheme } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { createMediaStyleSheet } from 'media-style-sheet';
 import { Card } from './Card.tsx';
-
-const MediaStyleSheet = createMediaStyleSheet({
-    tablet: () => true,
-    mobile: () => false,
-});
 
 function useIsDarkMode() {
     return useColorScheme() === 'dark';
