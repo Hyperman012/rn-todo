@@ -3,6 +3,7 @@ import { SafeAreaView, useColorScheme } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Card } from './Card.tsx';
+import { AppHeader } from './AppHeader.tsx';
 
 function useIsDarkMode() {
     return useColorScheme() === 'dark';
@@ -17,6 +18,7 @@ export default function App(): React.JSX.Element {
 
     return (
         <SafeAreaView style={backgroundStyle}>
+            <AppHeader />
             <Card todo={{ title: 'Make List' }} />
         </SafeAreaView>
     );
