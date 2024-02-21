@@ -14,4 +14,8 @@ describe('App', () => {
         const screen = render(<App />);
         screen.getByText(appName);
     });
+    it('has Add Button', () => {
+        const screen = render(<App />);
+        screen.getByText('Add');
+    });
 });

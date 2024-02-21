@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, useColorScheme } from 'react-native';
+import { Pressable, SafeAreaView, Text, useColorScheme } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { AppHeader } from './AppHeader.tsx';
@@ -22,6 +22,9 @@ export default function App(): React.JSX.Element {
     return (
         <SafeAreaView style={[backgroundStyle, { flex: 1, gap: 20 }]}>
             <AddModal isVisible={isAddModalVisible} setIsVisible={setIsAddModalVisible} />
+            <Pressable>
+                <Text>Add</Text>
+            </Pressable>
             <AppHeader />
             <TodoCards />
         </SafeAreaView>
