@@ -4,7 +4,8 @@ import { render } from "@testing-library/react-native";
 import { Card } from "../Card.tsx";
 
 describe("Card ", () => {
-  it("renders", () => {
+  it("renders todo comment", () => {
     const renderAPI = render(<Card />);
+    renderAPI.getByText("Create Todo List");
   });
 });
