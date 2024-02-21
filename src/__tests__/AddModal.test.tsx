@@ -1,13 +1,15 @@
 import 'react-native';
-import { beforeEach, describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, RenderResult } from '@testing-library/react-native';
 import React from 'react';
 import { AddModal } from '../AddModal.tsx';
 
 describe('AddModal', () => {
     let modal: RenderResult;
+    let setIsVisibleSpy: jest.Mock;
     beforeEach(() => {
-        modal = render(<AddModal />);
+        setIsVisibleSpy = jest.fn();
+        modal = render(<AddModal isVisible={true} setIsVisible={setIsVisibleSpy} />);
     });
 
     it('has text input', () => {
@@ -23,18 +25,13 @@ describe('AddModal', () => {
     describe('confirm button', () => {
         it('closes', () => {
             fireEvent.press(modal.getByText('Save'));
-
-            expect(() => {
-                modal.getByPlaceholderText('Enter To-Do');
-            }).toThrow();
+            expect(setIsVisibleSpy).toBeCalledWith(false);
         });
     });
 
     it('closes', () => {
         fireEvent.press(modal.getByText('Close'));
 
-        expect(() => {
-            modal.getByPlaceholderText('Enter To-Do');
-        }).toThrow();
+        expect(setIsVisibleSpy).toBeCalledWith(false);
     });
 });
