@@ -1,23 +1,9 @@
 import React from "react";
-import type { PropsWithChildren } from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from "react-native";
+import { SafeAreaView, useColorScheme } from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from "react-native/Libraries/NewAppScreen";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 import { createMediaStyleSheet } from "media-style-sheet";
+import { Card } from "./Card.tsx";
 
 const MediaStyleSheet = createMediaStyleSheet({
   tablet: () => true,
@@ -35,5 +21,9 @@ export default function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return <SafeAreaView style={backgroundStyle}></SafeAreaView>;
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <Card />
+    </SafeAreaView>
+  );
 }
