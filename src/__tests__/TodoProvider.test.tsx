@@ -1,5 +1,5 @@
 import 'react-native';
-import { describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it } from '@jest/globals';
 import { act, render } from '@testing-library/react-native';
 import { defaultTodo, TodoProvider, useTodos } from '../TodoProvider.tsx';
 import { Text } from 'react-native';
@@ -23,18 +23,24 @@ describe('todo provider', () => {
     });
 
     describe('useTodos hook', () => {
+        let renderBuilder: RenderBuilder;
+
+        beforeEach(() => {
+            renderBuilder = new RenderBuilder().withTodo();
+        });
+
         it('returns default from provider ', () => {
-            const hook = new RenderBuilder().withTodo().renderHook(useTodos);
+            const hook = renderBuilder.renderHook(useTodos);
             expect(hook.result.current.todos).toEqual([{ title: 'Make Todo List' }]);
         });
 
         it('can add to the list', () => {
-            const hook = new RenderBuilder().withTodo().renderHook(useTodos);
+            const hook = renderBuilder.renderHook(useTodos);
             expect(hook.result.current.add).toBeDefined();
         });
 
         it('adds to the list', () => {
-            const hook = new RenderBuilder().withTodo().renderHook(useTodos);
+            const hook = renderBuilder.renderHook(useTodos);
             const newTodo = { title: 'do the dishes' };
             act(() => {
                 hook.result.current.add(newTodo);
