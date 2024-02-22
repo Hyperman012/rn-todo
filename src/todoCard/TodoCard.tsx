@@ -10,7 +10,9 @@ export function TodoCard(props: { todo: Todo }) {
                 <View style={styles.deleteButtonPosition}>
                     <DeleteTodoButton />
                 </View>
-                <Text>{props.todo.title}</Text>
+                <View style={styles.titleContainer}>
+                    <Text>{props.todo.title}</Text>
+                </View>
             </View>
         </TodoPostIt>
     );
@@ -27,8 +29,12 @@ function DeleteTodoButton() {
 const styles = StyleSheet.create({
     cardContainer: {
         flex: 1,
-        paddingVertical: 10,
+        width: '100%',
+        padding: 10,
         gap: 20,
+    },
+    titleContainer: {
+        alignItems: 'center',
     },
     deleteButtonPosition: {
         flexDirection: 'row',
