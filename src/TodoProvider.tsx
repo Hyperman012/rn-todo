@@ -21,12 +21,17 @@ export const useTodos = (): TodoCollection => {
 export const defaultTodo: Todo = {
     title: 'Make Todo List',
 };
+let initialState = [defaultTodo];
 
 export function TodoProvider(props: PropsWithChildren) {
-    const [todos, setTodos] = useState<Todo[]>([defaultTodo]);
+    const [todos, setTodos] = useState<Todo[]>(initialState);
     const todoCollection: TodoCollection = {
         todos,
         add(newTodo: Todo): void {
+            if (todos === initialState) {
+                setTodos([newTodo]);
+                return;
+            }
             setTodos(todos => todos.concat(newTodo));
         },
     };
