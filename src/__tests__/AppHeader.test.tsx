@@ -9,4 +9,9 @@ describe('app header.test', () => {
         const header = render(<AppHeader setIsVisible={() => {}} />);
         header.getByText(appName);
     });
+    it('renders buttons', () => {
+        const header = render(<AppHeader setIsVisible={() => {}} />);
+        header.getByText('Add');
+        header.getByText('Clear All');
+    });
 });
