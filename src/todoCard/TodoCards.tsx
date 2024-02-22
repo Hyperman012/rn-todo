@@ -1,7 +1,8 @@
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { TodoCard } from './TodoCard.tsx';
 import React from 'react';
 import { useTodos } from '../TodoProvider.tsx';
+import { MediaStyleSheet } from '../stylesheet.tsx';
 
 export function TodoCards() {
     const todo = useTodos();
@@ -14,6 +15,11 @@ export function TodoCards() {
     );
 }
 
-const styles = StyleSheet.create({
-    scrollContainer: {},
+const styles = MediaStyleSheet.create({
+    scrollContainer: {
+        tablet: {
+            flexDirection: 'row',
+            padding: 10,
+        },
+    },
 });
