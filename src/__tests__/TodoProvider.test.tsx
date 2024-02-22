@@ -1,34 +1,22 @@
 import 'react-native';
 import { beforeEach, describe, expect, it } from '@jest/globals';
-import { act, render } from '@testing-library/react-native';
-import { defaultTodo, TodoProvider, useTodos } from '../TodoProvider.tsx';
+import { act } from '@testing-library/react-native';
+import { defaultTodo, useTodos } from '../TodoProvider.tsx';
 import { Text } from 'react-native';
-import { ReactRenderBuilder } from 'react-render-builder';
-
-class RenderBuilder extends ReactRenderBuilder {
-    withTodo(): this {
-        this.addElement(children => <TodoProvider children={children} />);
-        return this;
-    }
-}
+import { RenderBuilder } from '../RenderBuilder.tsx';
 
 describe('todo provider', () => {
+    let renderBuilder: RenderBuilder;
+
+    beforeEach(() => {
+        renderBuilder = new RenderBuilder().withTodo();
+    });
     it('renders children', () => {
-        const screen = render(
-            <TodoProvider>
-                <Text>Hello</Text>
-            </TodoProvider>,
-        );
+        const screen = renderBuilder.render(<Text>Hello</Text>);
         screen.getByText('Hello');
     });
 
     describe('useTodos hook', () => {
-        let renderBuilder: RenderBuilder;
-
-        beforeEach(() => {
-            renderBuilder = new RenderBuilder().withTodo();
-        });
-
         it('returns default from provider ', () => {
             const hook = renderBuilder.renderHookResult(useTodos);
             expect(hook.todos).toEqual([{ title: 'Make Todo List' }]);
