@@ -1,7 +1,7 @@
 import 'react-native';
 import { describe, expect, it } from '@jest/globals';
-import { render, renderHook } from '@testing-library/react-native';
-import { TodoProvider, useTodos } from '../TodoProvider.tsx';
+import { act, render, renderHook } from '@testing-library/react-native';
+import { defaultTodo, TodoProvider, useTodos } from '../TodoProvider.tsx';
 import { Text } from 'react-native';
 import { PropsWithChildren } from 'react';
 
@@ -26,6 +26,16 @@ describe('todo provider', () => {
             const wrapper = (props: PropsWithChildren) => <TodoProvider children={props.children} />;
             const hook = renderHook(useTodos, { wrapper });
             expect(hook.result.current.add).toBeDefined();
+        });
+
+        it('adds to the list', () => {
+            const wrapper = (props: PropsWithChildren) => <TodoProvider children={props.children} />;
+            const hook = renderHook(useTodos, { wrapper });
+            const newTodo = { title: 'do the dishes' };
+            act(() => {
+                hook.result.current.add(newTodo);
+            });
+            expect(hook.result.current.todos).toEqual([defaultTodo, newTodo]);
         });
     });
 });

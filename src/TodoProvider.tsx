@@ -26,7 +26,9 @@ export function TodoProvider(props: PropsWithChildren) {
     const [todos, setTodos] = useState<Todo[]>([defaultTodo]);
     const todoCollection: TodoCollection = {
         todos,
-        add(todo: Todo): void {},
+        add(newTodo: Todo): void {
+            setTodos(todos => todos.concat(newTodo));
+        },
     };
 
     return <TodoContext.Provider value={todoCollection}>{props.children}</TodoContext.Provider>;
