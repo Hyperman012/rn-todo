@@ -30,13 +30,8 @@ describe('todo provider', () => {
         });
 
         it('returns default from provider ', () => {
-            const hook = renderBuilder.renderHook(useTodos);
-            expect(hook.result.current.todos).toEqual([{ title: 'Make Todo List' }]);
-        });
-
-        it('can add to the list', () => {
-            const hook = renderBuilder.renderHook(useTodos);
-            expect(hook.result.current.add).toBeDefined();
+            const hook = renderBuilder.renderHookResult(useTodos);
+            expect(hook.todos).toEqual([{ title: 'Make Todo List' }]);
         });
 
         it('adds to the list', () => {
