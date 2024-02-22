@@ -2,8 +2,10 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { OurModal } from './OurModal.tsx';
 import { EditableCard } from './todoCard/EditableTodoCard.tsx';
+import { useTodos } from './TodoProvider.tsx';
 
 export function AddModal(props: { isVisible: boolean; setIsVisible: (value: boolean) => void }) {
+    const todoCollection = useTodos();
     const [newTodo, setNewTodo] = useState('');
 
     function closeModal() {
@@ -11,6 +13,7 @@ export function AddModal(props: { isVisible: boolean; setIsVisible: (value: bool
     }
 
     function onSave() {
+        todoCollection.add({ title: newTodo });
         closeModal();
     }
 

@@ -3,14 +3,29 @@ import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, RenderResult } from '@testing-library/react-native';
 import React from 'react';
 import { AddModal } from '../AddModal.tsx';
+import { TodoCollection, TodoContext } from '../TodoProvider.tsx';
+import { Todo } from '../Todo.tsx';
+
+function createSpyTodoCollection(): TodoCollection {
+    return {
+        todos: [],
+        add: jest.fn(),
+    };
+}
 
 describe('AddModal', () => {
     let modal: RenderResult;
     let setIsVisibleSpy: jest.Mock;
+    let spyTodoCollection: TodoCollection;
 
     beforeEach(() => {
         setIsVisibleSpy = jest.fn();
-        modal = render(<AddModal isVisible={true} setIsVisible={setIsVisibleSpy} />);
+        spyTodoCollection = createSpyTodoCollection();
+        modal = render(
+            <TodoContext.Provider value={spyTodoCollection}>
+                <AddModal isVisible={true} setIsVisible={setIsVisibleSpy} />
+            </TodoContext.Provider>,
+        );
     });
 
     it('has text input', () => {
@@ -30,12 +45,17 @@ describe('AddModal', () => {
         });
 
         describe('saves', () => {
+            const expectedTodo: Todo = { title: todoTitle };
             beforeEach(() => {
                 fireEvent.press(modal.getByText('Save'));
             });
 
             it('closes', () => {
                 expect(setIsVisibleSpy).toBeCalledWith(false);
+            });
+
+            it('adds to Todo Collection', () => {
+                expect(spyTodoCollection.add).toHaveBeenCalledWith(expectedTodo);
             });
         });
     });
