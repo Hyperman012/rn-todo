@@ -4757,10 +4757,10 @@ marky@^1.2.2:
   resolved "https://registry.npmjs.org/marky/-/marky-1.2.5.tgz"
   integrity sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==
 
-media-style-sheet@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/media-style-sheet/-/media-style-sheet-1.0.0.tgz"
-  integrity sha512-pw3qwQyAEpaRwjIvuHxUXIdXSYdtPYrJg7ZMFaCqlMzM8yCwbqmK4KBfYfAGaFzqGBRLATdf8IBJ7roPbm6wcQ==
+media-style-sheet@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/media-style-sheet/-/media-style-sheet-1.0.2.tgz#74e9a6baade788a8850cc2e0df8a7ef996076ce5"
+  integrity sha512-A0SJchLJuNolkxtOtP+SLjZ124GUoK8hUAqdV/YBaWxdQiC/3Fc3H/RqRzpnoEBDXMHb4gJJqx4BjTExdh1SAg==
 
 memoize-one@^5.0.0:
   version "5.2.1"
@@ -6429,10 +6429,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-use-react-ref@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/use-react-ref/-/use-react-ref-1.0.3.tgz"
-  integrity sha512-NUcY/NDw8UBAS2BvkO/6Ra+0Ts97SZwjqBXPvJ0IgLLIx05maIifnitOhoKeCFmWyNFVui6XIKbMKGAtCOiGBg==
+use-react-ref@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/use-react-ref/-/use-react-ref-1.0.4.tgz#f10d20d90902263677f0b49ea126c056da049348"
+  integrity sha512-LnYs40bGgiRzJFKacbwu0zkBd+Cdym/+nFN/fgQ0JonXmASLW4TjOjiy+U5PNakQgYfCrJScwsKjcAJ1T+qM4w==
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
