@@ -18,8 +18,12 @@ export const useTodos = (): TodoCollection => {
     return todoCollection;
 };
 
+export const defaultTodo: Todo = {
+    title: 'Make Todo List',
+};
+
 export function TodoProvider(props: PropsWithChildren) {
-    const [todos, setTodos] = useState<Todo[]>([]);
+    const [todos, setTodos] = useState<Todo[]>([defaultTodo]);
     const todoCollection: TodoCollection = {
         todos,
         add(todo: Todo): void {
