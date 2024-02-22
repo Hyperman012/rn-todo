@@ -1,5 +1,6 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { createContext, PropsWithChildren, useContext } from 'react';
 import { Todo } from './Todo.tsx';
+import { useReactState } from 'use-react-ref';
 
 export interface TodoCollection {
     todos: Todo[];
@@ -21,18 +22,16 @@ export const useTodos = (): TodoCollection => {
 export const defaultTodo: Todo = {
     title: 'Make Todo List',
 };
-let initialState = [defaultTodo];
-
 export function TodoProvider(props: PropsWithChildren) {
-    const [todos, setTodos] = useState<Todo[]>(initialState);
+    const todoArray = useReactState([defaultTodo]);
     const todoCollection: TodoCollection = {
-        todos,
+        todos: todoArray.value,
         add(newTodo: Todo): void {
-            if (todos === initialState) {
-                setTodos([newTodo]);
+            if (todoArray.isInitialValue()) {
+                todoArray.set([newTodo]);
                 return;
             }
-            setTodos(todos => todos.concat(newTodo));
+            todoArray.set(todos => todos.concat(newTodo));
         },
     };
 
