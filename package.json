@@ -14,6 +14,7 @@
     "media-style-sheet": "^1.0.0",
     "react": "18.2.0",
     "react-native": "0.73.4",
+    "react-native-device-info": "^10.12.0",
     "use-react-ref": "^1.0.3"
   },
   "devDependencies": {
@@ -25,7 +26,6 @@
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.73.1",
     "@testing-library/react-native": "^12.4.3",
-
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
